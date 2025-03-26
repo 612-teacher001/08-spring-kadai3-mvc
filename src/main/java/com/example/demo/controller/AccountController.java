@@ -69,7 +69,9 @@ public class AccountController {
 	 * @return 初期画面のThymeleafテンプレート名
 	 */
 	@GetMapping("/account")
-	public String index() {
+	public String index(Model model) {
+		// 空の会員インスタンスを自画面に引き継ぐためにスコープに登録
+		model.addAttribute("account", new Account());
 		// 初期画面表示
 		return "accountForm";
 	}

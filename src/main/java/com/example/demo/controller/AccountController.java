@@ -13,8 +13,35 @@ import com.example.demo.model.Account;
 
 @Controller
 public class AccountController {
+	
+	/**
+	 * 登録完了画面表示
+	 * @param name     氏名
+	 * @param email    メールアドレス
+	 * @param password パスワード
+	 * @param model    遷移先にデータを引き継ぐスコープ
+	 * @return 登録完了画面のThymeleafテンプレート名
+	 */
+	@PostMapping("/account")
+	public String store(@RequestParam String name,
+						@RequestParam String email,
+						@RequestParam String password,
+						Model model
+					   ) {
+		// リクエストパラメータから会員クラスのインスタンスを生成
+		Account account = new Account(name, email, password);
+		// 遷移先画面に引き継ぐために会員インスタンスをスコープに登録
+		model.addAttribute("account", account);
+		// 画面遷移
+		return "accountFinish";
+	}
+	
 	/**
 	 * 確認画面表示
+	 * @param name     氏名
+	 * @param email    メールアドレス
+	 * @param password パスワード
+	 * @param model    遷移先にデータを引き継ぐスコープ
 	 * @return 確認画面のThymeleafテンプレート名
 	 */
 	@PostMapping("/account/confirm")

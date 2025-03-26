@@ -21,5 +21,11 @@
 			<td th:text="${account.password}"></td>
 		</tr>
 	</table>
+	<form action="/account" method="post">
+		<input type="hidden" name="name" th:value="${account.name}" />
+		<input type="hidden" name="email" th:value="${account.email}" />
+		<input type="hidden" name="password" th:value="${account.password}" />
+		<button>登録</button>
+	</form>
 </body>
 </html>

@@ -44,18 +44,19 @@ public class AccountController {
 			errors.add("パスワードは必須です");
 		}
 		
+		// 取得したリクエストパラメータから会員クラスのインスタンスを生成
+		Account account = new Account(name, email, password);
+		
 		// 入力値チェックの結果によって遷移先を分岐
 		if (errors.size() > 0) {
 			// エラーリストを遷移先で引き継ぐためにスコープに登録
 			model.addAttribute("errors", errors);
 			// 入力値を再表示
-			model.addAttribute("name", name);
+			model.addAttribute("account", account);
 			// 画面遷移
 			return "accountForm";
 		}
 		
-		// 取得したリクエストパラメータから会員クラスのインスタンスを生成
-		Account account = new Account(name, email, password);
 		// 会員のインスタンスを自画面に引き継ぐためにスコープに登録
 		model.addAttribute("account", account);
 		

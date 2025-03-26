@@ -14,19 +14,22 @@
 			<tr>
 				<th>名前</th>
 				<td>
-					<input type="text" name="name" th:value="${name}" />
+					<input type="text" name="name" th:if="${acocunt}" th:value="${account.name}" />
+					<input type="text" name="name" th:unless="${acocunt}" value="田中太郎" />
 				</td>
 			</tr>
 			<tr>
 				<th>メールアドレス</th>
 				<td>
-					<input type="text" name="email" value="tanaka@aaa.com" />
+					<input type="text" name="email" th:if="${account}" th:value="${account.email}" />
+					<input type="text" name="email" th:unless="${account}" value="tanaka@aaa.com" />
 				</td>
 			</tr>
 			<tr>
 				<th>パスワード</th>
 				<td>
-					<input type="text" name="password" value="himitu" />
+					<input type="text" name="password" th:if="${account}" th:value="${account.password}" />
+					<input type="text" name="password" th:unless="${account}" th:value="'himitu'" />
 				</td>
 			</tr>
 		</table>

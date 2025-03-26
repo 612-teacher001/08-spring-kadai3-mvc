@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>会員登録</title>
+</head>
+<body>
+	<h1>会員登録</h1>
+	<form action="/account/confirm" method="post">
+		<table border="1">
+			<tr>
+				<th>名前</th>
+				<td>
+					<input type="text" name="name" value="田中太郎" />
+				</td>
+			</tr>
+			<tr>
+				<th>メールアドレス</th>
+				<td>
+					<input type="text" name="email" value="tanaka@aaa.com" />
+				</td>
+			</tr>
+			<tr>
+				<th>パスワード</th>
+				<td>
+					<input type="text" name="password" value="himitu" />
+				</td>
+			</tr>
+		</table>
+		<button>確認</button>
+	</form>
+</body>
+</html>

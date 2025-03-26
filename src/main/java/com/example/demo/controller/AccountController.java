@@ -48,6 +48,8 @@ public class AccountController {
 		if (errors.size() > 0) {
 			// エラーリストを遷移先で引き継ぐためにスコープに登録
 			model.addAttribute("errors", errors);
+			// 入力値を再表示
+			model.addAttribute("name", name);
 			// 画面遷移
 			return "accountForm";
 		}
